@@ -1,0 +1,38 @@
+import discord
+
+client = discord.Client()
+
+
+@client.event
+async def on_message(message):
+    if message.content == ("hello"):
+        await message.channel.send("Hello!")
+
+	    
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to discord!')
+
+"""
+@client.event
+async def on_member_join(member):
+    if not member.bot:
+        await get.channel("welcome").send(f"Welcome to {member.guild.name} , {member.mention}! Head over to {get.channel('general').mention} and say hi!")
+
+    
+@client.event
+async def on_member_remove(member):
+    if not member.bot:
+        await get.channel("general").send(f"{member.display_name} is no longer in the server!")
+
+"""
+
+@client.event
+async def clear(ctx, amount=5):
+    await ctx.channel.purge(limit=amount)
+
+client.run('ODAxODM0MTA1ODA0ODE2Mzk0.YAmcNA.Ovagqcwl8Li28L0OQm4nLBTP8Wg')
+
+
+
+#I was trying to get it to send a welcome message and a message to the general chat when someone left or got kicked, but it was not working so if you see this I was hoping you could try and help me find out why.
